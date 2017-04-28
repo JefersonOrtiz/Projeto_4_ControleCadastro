@@ -81,10 +81,22 @@
                 <th>Endereço</th>
                 <th>OPÇÕES</th>
             </tr>
-            <%for(Cliente c: DataBaseCliente.getClientes())%>
+            <%for(Cliente c: DataBaseCliente.getClientes()){%>
             <tr>
-                
+                <td><%= c.getNome() %></td>
+                <td><%= c.getCpf()%></td>
+                <td><%= c.getRg() %></td>
+                <td><%= c.getEmail() %></td>
+                <td><%= c.getTelefone() %></td>
+                <td><%= c.getEndereco() %></td>
+                <td>
+                    <form>
+                        <input type="hidden" name="nome" value="<%= c.getNome() %>"/>
+                        <input type="submit" name="excluir" value="Excluir"/>
+                    </form>
+                </td>
             </tr>
+            <% }%>
         </table>
     </body>
 </html>
