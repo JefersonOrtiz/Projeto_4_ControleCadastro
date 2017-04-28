@@ -8,7 +8,7 @@
         <title>Cadastro de Fornecedores</title>
     </head>
     <body>
-        
+        <h1>Cadastro de Fornecedores</h1>
         <fieldset>
             <legend><b>Incluir Fornecedor</b></legend>
             <link href="<c:url value='./css/alinhar.css' />" rel="stylesheet" type="text/css" /> <!-- Usado para alinhas as caixas de texto-->
