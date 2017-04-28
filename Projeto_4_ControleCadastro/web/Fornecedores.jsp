@@ -1,13 +1,15 @@
 <%@page import="br.com.fatecpg.cadastros.DatabaseFornecedores"%>
 <%@page import="br.com.fatecpg.cadastros.Fornecedor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <!-- Usado para alinhas as caixas de texto-->
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %><!--Usado para alinhas as caixas de texto-->
 <html>
     <head>
+        <%@include file="WEB-INF/jspf/menu.jspf"%>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Fornecedores</title>
     </head>
     <body>
+        
         <h1>Cadastro de Fornecedores</h1>
         <fieldset>
             <legend><b>Incluir Fornecedor</b></legend>

@@ -1,14 +1,16 @@
 <%@page import="br.com.fatecpg.cadastros.DataBaseCliente"%>
 <%@page import="br.com.fatecpg.cadastros.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <!-- Usado para alinhas as caixas de texto-->
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %><!--Usado para alinhas as caixas de texto-->
 <!DOCTYPE html>
 <html>
     <head>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro Cliente</title>
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/menu.jspf"%>
         <h1>Cadastro de Clientes</h1>
         <fieldset>
             <legend><b>Incluir Cliente</b></legend>

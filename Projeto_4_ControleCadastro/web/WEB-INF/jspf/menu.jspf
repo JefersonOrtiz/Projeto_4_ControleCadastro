@@ -1,0 +1,16 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<link href="css/estilo.css" rel="stylesheet">
+<link href="css/scroling-nav.css" rel="stylesheet">
+<link href="css/alinhar.css" rel="stylesheet">
+<link href="css/bootetrap.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<div>
+    <nav id="menu">
+    <ul type="disc">
+        <li><a href="Home.jsp">Home</a></li>
+        <li><a href="Cliente.jsp">Cliente</a></li>
+        <li><a href="Fornecedores.jsp">Fornecedores</a></li>
+    </ul>
+    </nav>
+</div>
