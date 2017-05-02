@@ -40,6 +40,7 @@
               </div> <!-- Usado para alinhas as caixas de texto-->
             <%
                 try{
+                    //botão incluir
                    if(request.getParameter("incluir")!=null){
                      String nome = request.getParameter("nome");
                      String cpf = request.getParameter("cpf");
@@ -56,6 +57,7 @@
                      c.setEndereco(endereco);
                      DataBaseCliente.getClientes().add(c);
                      response.sendRedirect(request.getRequestURI());
+                     //Botão Excluir
                     }else if(request.getParameter("excluir")!=null){
                         String nome = request.getParameter("nome");
                         for(int i=0;i< DataBaseCliente.getClientes().size();i++){
@@ -65,7 +67,17 @@
                             }
                         }
                         response.sendRedirect(request.getRequestURI());
-                    } 
+                     //Botão Alterar
+                    }else if (request.getParameter("alterar") != null) {
+                       String nome = request.getParameter("nome");
+                         for(int i=0;i< DataBaseCliente.getClientes().size();i++){
+                            if(DataBaseCliente.getClientes().get(i).getNome().equals(nome)){
+                               DataBaseCliente.getClientes().get(i).setNome(nome);
+                                break;
+                            }
+                        }
+                         response.sendRedirect(request.getRequestURI());
+                    }
                 }catch(Exception ex){%>
                 <div style="color: red;">Erro: <%= ex.getMessage() %></div>
                 <%}
@@ -93,6 +105,7 @@
                     <form>
                         <input type="hidden" name="nome" value="<%= c.getNome() %>"/>
                         <input type="submit" name="excluir" value="Excluir"/>
+                        <input type="submit" name="alterar" value="Alterar"/>
                     </form>
                 </td>
             </tr>
