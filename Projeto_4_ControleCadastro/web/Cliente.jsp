@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro Cliente</title>
     </head>
@@ -15,72 +15,87 @@
         <fieldset>
             <legend><b>Incluir Cliente</b></legend>
             <link href="<c:url value='./css/alinhar.css' />" rel="stylesheet" type="text/css" /> <!-- Usado para alinhas as caixas de texto-->
-              <div style="margin-top: 30px;" class="container"> <!-- Usado para alinhas as caixas de texto-->
-            <form>
-                <label class="alinhar">Nome:</label>
-                <input type="text" name="nome"/><br/><br/>
-                
-                <label class="alinhar">CPF:</label>
-                <input type="text" name="cpf"/><br/><br/>
-                
-                <label class="alinhar">RG:</label>
-                <input type="text" name="rg"/><br/><br/>
-                
-                <label class="alinhar">E-mail:</label>
-                <input type="text" name="email"/><br/><br/>
-                
-                <label class="alinhar">Telefone:</label>
-                <input type="text" name="tel"/><br/><br/>
-                
-                <label class="alinhar">Endereço:</label>
-                <input type="text" name="end"><br/><br/>
-                
-                <input type="submit" name="incluir" value="Incluir"/>   <input type="reset" name="limpar" value="Limpar"/><br/><br/>
-            </form>
-              </div> <!-- Usado para alinhas as caixas de texto-->
+            <div style="margin-top: 30px;" class="container"> <!-- Usado para alinhas as caixas de texto-->
+                <form>
+                    <label class="alinhar">Nome:</label>
+                    <input type="text" name="nome"/><br/><br/>
+
+                    <label class="alinhar">CPF:</label>
+                    <input type="text" name="cpf"/><br/><br/>
+
+                    <label class="alinhar">RG:</label>
+                    <input type="text" name="rg"/><br/><br/>
+
+                    <label class="alinhar">E-mail:</label>
+                    <input type="text" name="email"/><br/><br/>
+
+                    <label class="alinhar">Telefone:</label>
+                    <input type="text" name="tel"/><br/><br/>
+
+                    <label class="alinhar">Endereço:</label>
+                    <input type="text" name="end"><br/><br/>
+
+                    <input type="submit" name="incluir" value="Incluir"/>   <input type="reset" name="limpar" value="Limpar"/><br/><br/>
+
+            </div> <!-- Usado para alinhas as caixas de texto-->
             <%
-                try{
+                try {
                     //botão incluir
-                   if(request.getParameter("incluir")!=null){
-                     String nome = request.getParameter("nome");
-                     String cpf = request.getParameter("cpf");
-                     String rg = request.getParameter("rg");
-                     String email = request.getParameter("email");
-                     String telefone = request.getParameter("tel");
-                     String endereco = request.getParameter("end");
-                     Cliente c = new Cliente();
-                     c.setNome(nome);
-                     c.setCpf(cpf);
-                     c.setRg(rg);
-                     c.setEmail(email);
-                     c.setTelefone(telefone);
-                     c.setEndereco(endereco);
-                     DataBaseCliente.getClientes().add(c);
-                     response.sendRedirect(request.getRequestURI());
-                     //Botão Excluir
-                    }else if(request.getParameter("excluir")!=null){
+                    if (request.getParameter("incluir") != null) {
                         String nome = request.getParameter("nome");
-                        for(int i=0;i< DataBaseCliente.getClientes().size();i++){
-                            if(DataBaseCliente.getClientes().get(i).getNome().equals(nome)){
+                        String cpf = request.getParameter("cpf");
+                        String rg = request.getParameter("rg");
+                        String email = request.getParameter("email");
+                        String telefone = request.getParameter("tel");
+                        String endereco = request.getParameter("end");
+                        Cliente c = new Cliente();
+                        c.setNome(nome);
+                        c.setCpf(cpf);
+                        c.setRg(rg);
+                        c.setEmail(email);
+                        c.setTelefone(telefone);
+                        c.setEndereco(endereco);
+                        DataBaseCliente.getClientes().add(c);
+                        response.sendRedirect(request.getRequestURI());
+                        //Botão Excluir
+                    } else if (request.getParameter("excluir") != null) {
+                        String nome = request.getParameter("nome");
+                        for (int i = 0; i < DataBaseCliente.getClientes().size(); i++) {
+                            if (DataBaseCliente.getClientes().get(i).getNome().equals(nome)) {
                                 DataBaseCliente.getClientes().remove(i);
+
                                 break;
                             }
                         }
                         response.sendRedirect(request.getRequestURI());
-                     //Botão Alterar
-                    }else if (request.getParameter("alterar") != null) {
-                       String nome = request.getParameter("nome");
-                         for(int i=0;i< DataBaseCliente.getClientes().size();i++){
-                            if(DataBaseCliente.getClientes().get(i).getNome().equals(nome)){
-                               DataBaseCliente.getClientes().get(i).setNome(nome);
+                        //Botão Alterar
+                    } else if (request.getParameter("alterar") != null) {
+                        String cpf = request.getParameter("cpf");
+                        for (int i = 0; i < DataBaseCliente.getClientes().size(); i++) {
+                            if (DataBaseCliente.getClientes().get(i).getCpf().equals(cpf)) {
+                                DataBaseCliente.getClientes().remove(i);
+                                String nome = request.getParameter("nome");
+
+                                String rg = request.getParameter("rg");
+                                String email = request.getParameter("email");
+                                String telefone = request.getParameter("tel");
+                                String endereco = request.getParameter("end");
+                                Cliente c = new Cliente();
+                                c.setNome(nome);
+                                c.setCpf(cpf);
+                                c.setRg(rg);
+                                c.setEmail(email);
+                                c.setTelefone(telefone);
+                                c.setEndereco(endereco);
+                                DataBaseCliente.getClientes().add(c);
                                 break;
                             }
                         }
-                         response.sendRedirect(request.getRequestURI());
+                        response.sendRedirect(request.getRequestURI());
                     }
-                }catch(Exception ex){%>
-                <div style="color: red;">Erro: <%= ex.getMessage() %></div>
-                <%}
+                } catch (Exception ex) {%>
+            <div style="color: red;">Erro: <%= ex.getMessage()%></div>
+            <%}
             %>
         </fieldset><br/>
         <table border="1">
@@ -93,19 +108,19 @@
                 <th>Endereço</th>
                 <th>OPÇÕES</th>
             </tr>
-            <%for(Cliente c: DataBaseCliente.getClientes()){%>
+            <%for (Cliente c : DataBaseCliente.getClientes()) {%>
             <tr>
-                <td><%= c.getNome() %></td>
+                <td><%= c.getNome()%></td>
                 <td><%= c.getCpf()%></td>
-                <td><%= c.getRg() %></td>
-                <td><%= c.getEmail() %></td>
-                <td><%= c.getTelefone() %></td>
-                <td><%= c.getEndereco() %></td>
+                <td><%= c.getRg()%></td>
+                <td><%= c.getEmail()%></td>
+                <td><%= c.getTelefone()%></td>
+                <td><%= c.getEndereco()%></td>
                 <td>
-                    <form>
-                        <input type="hidden" name="nome" value="<%= c.getNome() %>"/>
-                        <input type="submit" name="excluir" value="Excluir"/>
-                        <input type="submit" name="alterar" value="Alterar"/>
+
+                    <input type="hidden" name="nome" value="<%= c.getNome()%>"/>
+                    <input type="submit" name="excluir" value="Excluir"/>
+                    <input type="submit" name="alterar" value="Alterar"/>
                     </form>
                 </td>
             </tr>
