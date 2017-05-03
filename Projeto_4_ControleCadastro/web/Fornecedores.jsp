@@ -9,7 +9,7 @@
         <title>Cadastro de Fornecedores</title>
     </head>
     <body>
-        
+        <div id="interface">
         <h1>Cadastro de Fornecedores</h1>
         <fieldset>
             <legend><b>Incluir Fornecedor</b></legend>
@@ -38,6 +38,7 @@
                 
                 <input type="submit" name="incluir" value="Incluir"/>   <input type="reset" name="limpar" value="Limpar"/><br/><br/>
             </form>
+                  
               </div>
         <%
             try{
@@ -72,7 +73,7 @@
           <%}
         %>
         </fieldset><br/>
-        <table border="1">
+        <table border="2">
             <tr>
                 <th>Nome</th>
                 <th>Email</th>
@@ -99,5 +100,6 @@
             </tr>
             <% }%>
         </table>
+        </div>
     </body>
 </html>
