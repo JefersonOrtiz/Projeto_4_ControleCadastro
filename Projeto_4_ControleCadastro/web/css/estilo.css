@@ -7,9 +7,24 @@ and open the template in the editor.
     Created on : 28/04/2017, 20:22:13
     Author     : Jeferson
 */
+body{
+    background-color: #dddddd;
+    color: rgba(0,0,0,1);
+}
 
-/* Formatação do menu*/
+h3 {
+    text-align: center;
+}
 
+div#interface {
+    width: 900px;
+    background-color: #ffffff;
+    margin:150px 10px 50px 40px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+    padding: 20px;
+}
+
+/* Formatação do Menu */
 nav#menu{
     display: block;
 }
@@ -17,8 +32,8 @@ nav#menu ul{
     list-style: none;
     text-transform: uppercase;
     position: absolute;
-    top: 0px;
-    left: 300px;
+    top: 20px;
+    left: 0px;
 }
 
 nav#menu li{
@@ -26,6 +41,10 @@ nav#menu li{
     background-color: #dddddd;
     padding: 10px;
     margin: 2px;
+    -webkit-transition: background-color 1s;
+    -moz-transition: background-color 1s;
+    -o-transition: background-color 1s;
+    -ms-transition: background-color 1s;
     transition: background-color 1s;
 }
 
@@ -36,3 +55,15 @@ nav#menu li:hover{
 nav#menu h1{
     display: none;
 }
+
+nav#menu a {
+    color: #000000;
+    text-decoration: none;
+}
+
+nav#menu a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
