@@ -11,6 +11,7 @@
     </head>
     <body>
         <%@include file="WEB-INF/jspf/menu.jspf"%>
+        <div id="interface">
         <h1>Cadastro de Clientes</h1>
         <form>
             <fieldset>
