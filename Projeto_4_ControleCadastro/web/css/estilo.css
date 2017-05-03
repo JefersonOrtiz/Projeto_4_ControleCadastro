@@ -19,8 +19,8 @@ h3 {
 div#interface {
     width: 900px;
     background-color: #ffffff;
-    margin:150px 10px 50px 40px;
-    box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+    margin:150px 10px 50px 250px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,.5);
     padding: 20px;
 }
 
@@ -33,7 +33,7 @@ nav#menu ul{
     text-transform: uppercase;
     position: absolute;
     top: 20px;
-    left: 0px;
+    right:50px;
 }
 
 nav#menu li{
