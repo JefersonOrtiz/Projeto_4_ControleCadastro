@@ -39,8 +39,11 @@
                 <input type="text" name="endereco"><br/><br/>
     
                 
-                
-                <input type="submit" name="incluir" value="Incluir"/>   <input type="reset" name="limpar" value="Limpar"/><br/><br/>
+               
+                <input type="submit" name="incluir" value="Incluir"/>
+                    <input type="reset" name="limpar" value="Limpar"/>
+                    <input type="submit" name="excluir" value="Excluir"/>
+                    <input type="submit" name="alterar" value="Alterar"/>
             </form>
                   
               </div>
@@ -62,6 +65,8 @@
                     c.setCnpj(cnpj);
                     DatabaseFornecedores.getFornecedor().add(c);
                     response.sendRedirect(request.getRequestURI());
+                    
+                    
                 }else if(request.getParameter("excluir")!=null){
                     String nome = request.getParameter("nome");
                     for(int i=0; i<DatabaseFornecedores.getFornecedor().size(); i++){
@@ -71,7 +76,31 @@
                         }
                     }
                     response.sendRedirect(request.getRequestURI());
-                }
+                }     else if (request.getParameter("alterar") != null) {
+                            String cnpj = request.getParameter("cnpj");
+                            for (int i = 0; i < DatabaseFornecedores.getFornecedor().size(); i++) {
+                                if (DatabaseFornecedores.getFornecedor().get(i).getCnpj().equals(cnpj)) {
+                                    DatabaseFornecedores.getFornecedor().remove(i);
+                                    String nome = request.getParameter("nome");
+                                     
+                    String email = request.getParameter("email");
+                    String telefone = request.getParameter("telefone");
+                    String razao = request.getParameter("razao");
+                    String endereco = request.getParameter("endereco");
+                    Fornecedor c = new Fornecedor();
+                    c.setNome(nome);
+                    c.setEmail(email);
+                    c.setTelefone(telefone);
+                    c.setEndereco(endereco);
+                    c.setRazao(razao);
+                    c.setCnpj(cnpj);
+                    DatabaseFornecedores.getFornecedor().add(c);
+                       break;
+                                }
+                            }
+                            response.sendRedirect(request.getRequestURI());
+                        }
+                    
             }catch(Exception ex){%>
             <div style="color: red;">Erro: <%= ex.getMessage() %></div>
           <%}
@@ -85,8 +114,7 @@
                 <th>Endereço</th>
                 <th>Razao Social</th>
                 <th>Cnpj</th>
-                <th>Comandos</th>
-            </tr>
+           </tr>
             <% for(Fornecedor c: DatabaseFornecedores.getFornecedor()){%>
             <tr>
                 <td><%= c.getNome() %></td>
@@ -95,15 +123,18 @@
                 <td><%= c.getEndereco() %></td>
                 <td><%= c.getRazao() %></td>
                 <td><%= c.getCnpj() %></td>
-                <td>
-                    <form>
-                        <input type="hidden" name="nome" value="<%= c.getNome() %>"/>
-                        <input type="submit" name="excluir" value="Excluir"/>
-                    </form>
-                </td>
+                <td><input type="hidden" name="nome" value="<%= c.getNome() %>"/></td>
             </tr>
             <% }%>
         </table>
         </div>
+        <center>
+            <footer>
+                <p><strong>Instruções de uso</strong></p>
+                <p>Para incluir um cliente: Preencha os campos solicitados (*) e clique em <b>INCLUIR</b></p>
+                <p>Para excluir um cliente: Entrar com o <i>NOME</i> e depois clicar em <b>EXCLUIR</b></p>
+                <p>Para alterar um cliente: Entrar com o <i>CNPJ</i> e preencher os campos que precisam ser alterados e clique em <b>ALTERAR</b></p>
+            </footer>
+           </center>
     </body>
 </html>
