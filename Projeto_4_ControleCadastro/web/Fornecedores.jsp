@@ -9,7 +9,10 @@
         <title>Cadastro de Fornecedores</title>
     </head>
     <body>
+
         <%@include file="WEB-INF/jspf/menu.jspf"%>
+
+
         <div id="interface">
         <h1>Cadastro de Fornecedores</h1>
         <fieldset>
